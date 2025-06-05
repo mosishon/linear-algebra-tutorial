@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Chosen Palette: Enhanced Scholarly Neutrals -->
-    <!-- Application Structure Plan: SPA with fixed sidebar. "Matrix Tools" enhanced with Determinant, Transpose, Add/Subtract, Scalar Multiplication. "Big Theorem" section now includes a detailed interactive example. API key input retained with explanation. Overall textual content rewritten for a friendly, user-authored tone. This structure maximizes both learning through examples and practical tool usage, ideal for a shareable educational app. -->
-    <!-- Visualization & Content Choices: Definitions rewritten. Matrix tools use dynamic HTML. Chart.js for Linear Independence. Unicode icons for Big Theorem properties. Big Theorem example uses step-by-step reveal. Gemini API calls for text generation (Markdown rendered). API key in sessionStorage. NO SVG/Mermaid. -->
+    <!-- Application Structure Plan: SPA with fixed sidebar. "Matrix Tools" enhanced. "Big Theorem" example. API key input. Overall textual content rewritten. Added "Basic Concepts" section for foundational topics. Corrected chart rendering and step animation issues. This structure maximizes learning from foundational to advanced, with practical tools and AI assistance, suitable for a public GitHub repository. -->
+    <!-- Visualization & Content Choices: Definitions rewritten. Matrix tools use dynamic HTML. Chart.js for Linear Independence now correctly rendered. Unicode icons for Big Theorem. Gemini API calls (Markdown rendered). NO SVG/Mermaid. -->
     <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
-    <title>کاوشگر پیشرفته جبر خطی (نسخه گیت‌هاب)</title>
+    <title>کاوشگر نهایی جبر خطی</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
@@ -31,26 +31,22 @@
 
         aside {
             background-color: #2c3e50;
-            /* Dark blue-gray */
         }
 
         .nav-link.active-nav-link {
             background-color: #3498db !important;
-            /* Bright Blue */
             color: white !important;
             font-weight: 700;
         }
 
         .nav-link:hover {
             background-color: #2980b9 !important;
-            /* Darker Bright Blue */
         }
 
         .action-button {
             background-color: #3498db;
             color: white;
             font-weight: 500;
-            /* Medium weight */
             padding: 0.7rem 1.4rem;
             border-radius: 8px;
             transition: background-color 0.2s, transform 0.1s, box-shadow 0.2s;
@@ -87,7 +83,6 @@
 
         h2 {
             color: #2980b9;
-            /* Darker Bright Blue for headers */
         }
 
         .math {
@@ -403,10 +398,12 @@
             <h1 class="text-3xl font-bold mb-10 text-center border-b border-gray-700 pb-5 text-white">جبر خطی به زبان
                 ساده</h1>
             <nav id="main-nav">
-                <ul class="space-y-2">
+                <ul class="space-y-1">
                     <li><a href="#intro"
                             class="nav-link block p-3 rounded-md hover:bg-gray-700 font-semibold active-nav-link">رفیق،
                             خوش اومدی!</a></li>
+                    <li><a href="#basic-concepts" class="nav-link block p-3 rounded-md hover:bg-gray-700">مفاهیم پایه‌ای
+                            (برای شروع)</a></li>
                     <li><a href="#linear-combination" class="nav-link block p-3 rounded-md hover:bg-gray-700">داستان
                             ترکیب خطی</a></li>
                     <li><a href="#span" class="nav-link block p-3 rounded-md hover:bg-gray-700">فضای مولد چیه؟</a></li>
@@ -426,7 +423,8 @@
                 </ul>
             </nav>
             <div class="mt-auto pt-8 border-t border-gray-700 text-xs text-center text-gray-400">
-                تقدیم به همه مریخی‌های عاشق جبر!
+                <p>تقدیم به همه مریخی‌های عاشق جبر!</p>
+                <p class="mt-1">با ایده‌ها و همراهی مصطفی ارشدی، رفیق مریخی.</p>
             </div>
         </aside>
 
@@ -441,14 +439,133 @@
                         مفهومی یعنی چی.
                     </p>
                     <p class="mt-5 text-lg leading-relaxed text-gray-700">
-                        از منوی سمت راست، هر مبحثی رو که عشقت کشید انتخاب کن. تو هر بخش، اول یه توضیح خودمونی میدم، بعدش
-                        با یه مثال میریم تو دل ماجرا و اگه خواستی عمیق‌تر بشی، می‌تونی از رفیقمون Gemini هم کمک بگیری
-                        (فقط یادت نره تو بخش "تنظیمات کلید Gemini" کلید API خودت رو بهش بدی). یه "جعبه ابزار ماتریس" هم
-                        گذاشتم که هرچی دلت خواست با ماتریس‌ها حساب کتاب کنی. خلاصه که اینجا خبری از حفظ کردن نیست، فقط
-                        درک و شهود! حالشو ببر!
+                        از منوی سمت راست، هر مبحثی رو که عشقت کشید انتخاب کن. اول از همه، یه سر به "مفاهیم پایه‌ای" بزن
+                        اگه تازه کاری! بعدش تو هر بخش، اول یه توضیح خودمونی میدم، بعدش با یه مثال میریم تو دل ماجرا و
+                        اگه خواستی عمیق‌تر بشی، می‌تونی از رفیقمون Gemini هم کمک بگیری (فقط یادت نره تو بخش "تنظیمات
+                        کلید Gemini" کلید API خودت رو بهش بدی). یه "جعبه ابزار ماتریس" هم گذاشتم که هرچی دلت خواست با
+                        ماتریس‌ها حساب کتاب کنی. خلاصه که اینجا خبری از حفظ کردن نیست، فقط درک و شهود! حالشو ببر!
                     </p>
                 </div>
             </section>
+
+            <section id="basic-concepts" class="content-section hidden">
+                <div class="section-card p-6 sm:p-8 rounded-xl shadow-lg">
+                    <h2 class="text-2xl sm:text-3xl font-bold mb-6">مفاهیم پایه‌ای (برای گرم کردن!)</h2>
+                    <p class="mb-8 text-gray-700 leading-relaxed">رفیق، قبل اینکه شیرجه بزنیم تو مباحث اصلی، بیا چندتا
+                        چیز ساده ولی مهم رو با هم مرور کنیم. اینا مثل الفبای جبر خطی‌ان!</p>
+
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="text-xl font-semibold mb-3 text-gray-800 flex items-center">
+                                <span class="text-2xl mr-3 text-blue-600">🔢</span> ترکیب خطی چیه به زبون خیلی ساده؟
+                                <button class="action-button gemini-button mr-auto text-sm py-1 px-3"
+                                    data-concept="ترکیب خطی بردارها به زبان بسیار ساده برای مبتدیان" data-type="deeper">
+                                    Gemini بیشتر بگه <span class="sparkle mr-1 text-base">✨</span>
+                                </button>
+                            </h3>
+                            <p class="text-gray-700 leading-relaxed pl-10">فکر کن چندتا آجر (<span
+                                    class="math vector">v<sub>1</sub>, v<sub>2</sub></span>) داری. ترکیب خطی یعنی با این
+                                آجرها یه دیوار (<span class="math vector">v</span>) بسازی. چطوری؟ مثلاً ۲ تا از آجر
+                                <span class="math"><span class="vector">v</span><sub>1</sub></span> رو بذاری کنار ۳ تا
+                                از آجر <span class="math"><span class="vector">v</span><sub>2</sub></span>. اون دیوار
+                                نهایی میشه ترکیب خطی آجرهات! <br><span class="math">2<span
+                                        class="vector">v</span><sub>1</sub> + 3<span class="vector">v</span><sub>2</sub>
+                                    = <span class="vector">v</span></span>. اون عددهای ۲ و ۳ همون اسکالرها هستن.</p>
+                            <p class="mt-2 pl-10 text-sm text-gray-600"><strong>مثال:</strong> اگه <span
+                                    class="math"><span class="vector">v</span><sub>1</sub> = (1,0)</span> و <span
+                                    class="math"><span class="vector">v</span><sub>2</sub> = (0,1)</span> باشه، بردار
+                                <span class="math"><span class="vector">w</span> = (3,2)</span> یه ترکیب خطیه، چون:
+                                <span class="math">3(1,0) + 2(0,1) = (3,2)</span>.</p>
+                        </div>
+
+                        <div>
+                            <h3 class="text-xl font-semibold mb-3 text-gray-800 flex items-center">
+                                <span class="text-2xl mr-3 text-blue-600">🏠</span> زیرفضا یعنی چی؟ یه گوشه دنج تو فضای
+                                بزرگ!
+                                <button class="action-button gemini-button mr-auto text-sm py-1 px-3"
+                                    data-concept="مفهوم زیرفضا به زبان بسیار ساده برای مبتدیان" data-type="deeper">
+                                    Gemini بیشتر بگه <span class="sparkle mr-1 text-base">✨</span>
+                                </button>
+                            </h3>
+                            <p class="text-gray-700 leading-relaxed pl-10">فکر کن کل <span
+                                    class="math">ℝ<sup>3</sup></span> (فضای سه بعدی که توش زندگی می‌کنیم) یه اتاق خیلی
+                                بزرگه. یه "زیرفضا" مثل یه گوشه از اون اتاقه (مثلاً کف اتاق، یا یه خط راست که از یه گوشه
+                                اتاق به گوشه دیگه کشیده شده) که خودش هم یه سری قوانین رو رعایت می‌کنه: <br>۱. حتماً مبدأ
+                                مختصات (نقطه صفر) توش باشه. <br>۲. اگه دوتا بردار از اون گوشه برداری، جمعشون هم باید تو
+                                همون گوشه باشه. <br>۳. اگه یه بردار از اون گوشه برداری و تو یه عددی ضربش کنی، بازم باید
+                                تو همون گوشه بمونه. اگه اینا برقرار بود، اون گوشه یه زیرفضاست!</p>
+                            <p class="mt-2 pl-10 text-sm text-gray-600"><strong>مثال:</strong> کل صفحه <span
+                                    class="math">xy</span> (یعنی همه بردارهایی که مؤلفه <span class="math">z</span> شون
+                                صفره) یه زیرفضا از <span class="math">ℝ<sup>3</sup></span> هست. یا هر خطی که از مبدأ
+                                بگذره.</p>
+                        </div>
+
+                        <div>
+                            <h3 class="text-xl font-semibold mb-3 text-gray-800 flex items-center">
+                                <span class="text-2xl mr-3 text-blue-600">🧮</span> حل دستگاه با ماتریس چطوریه؟ یه راه
+                                میانبر!
+                                <button class="action-button gemini-button mr-auto text-sm py-1 px-3"
+                                    data-concept="روش حل دستگاه معادلات خطی با استفاده از ماتریس‌ها برای مبتدیان"
+                                    data-type="deeper">
+                                    Gemini بیشتر بگه <span class="sparkle mr-1 text-base">✨</span>
+                                </button>
+                            </h3>
+                            <p class="text-gray-700 leading-relaxed pl-10">یادته تو مدرسه دستگاه معادله حل می‌کردیم؟
+                                مثلاً:<br><span class="math">{ x + y = 3</span><br><span class="math">{ 2x - y =
+                                    0</span><br>میشه اینو با ماتریس‌ها هم نوشت و حل کرد! ضرایب متغیرها رو می‌ریزیم تو یه
+                                ماتریس (<span class="math">A</span>)، خود متغیرها رو تو یه بردار ستونی (<span
+                                    class="math vector">X</span>)، و عددهای سمت راست رو هم تو یه بردار ستونی دیگه (<span
+                                    class="math vector">b</span>). اون وقت دستگاه میشه <span class="math">A<span
+                                        class="vector">X</span> = <span class="vector">b</span></span>. بعدش با یه سری
+                                عملیات روی ماتریس <span class="math">A</span> و <span class="math vector">b</span> (که
+                                بهش میگن ماتریس افزوده <span class="math">[A|b]</span>) می‌تونیم <span
+                                    class="math">x</span> و <span class="math">y</span> رو پیدا کنیم. خیلی وقتا سریع‌تر
+                                از روش‌های سنتیه، مخصوصاً برای دستگاه‌های بزرگ.</p>
+                            <p class="mt-2 pl-10 text-sm text-gray-600"><strong>مثال:</strong> دستگاه بالا رو میشه
+                                اینجوری با ماتریس افزوده نشون داد و حل کرد:<br>
+                            <div class="matrix-display ml-10">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>|</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>-1</td>
+                                            <td>|</td>
+                                            <td>0</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <span class="math"> → ... → </span>
+                            <div class="matrix-display">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>0</td>
+                                            <td>|</td>
+                                            <td>1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>0</td>
+                                            <td>1</td>
+                                            <td>|</td>
+                                            <td>2</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <br>که یعنی <span class="math">x=1</span> و <span class="math">y=2</span>.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
 
             <section id="linear-combination" class="content-section hidden">
                 <div class="section-card p-6 sm:p-8 rounded-xl shadow-lg">
@@ -526,8 +643,7 @@
                             <h4 class="font-semibold text-blue-800">قدم اول: معادله کلی</h4>
                             <p class="math">c<sub>1</sub>(1, 1) + c<sub>2</sub>(2, 2) = (x, y)</p>
                             <p class="text-sm text-gray-600">(که <span class="math">(x,y)</span> یه بردار دلخواه تو
-                                <span class="math">ℝ<sup>2</sup></span> هست)
-                            </p>
+                                <span class="math">ℝ<sup>2</sup></span> هست)</p>
                         </div>
                         <div class="step p-4 bg-blue-50 rounded-md">
                             <h4 class="font-semibold text-blue-800">قدم دوم: دستگاه معادلاتش</h4>
@@ -584,8 +700,7 @@
                             <h4 class="font-semibold">تحلیل مجموعه ۱ (<span class="math vector">v</span>ها)</h4>
                             <p>اگه <span class="math">c<sub>1</sub>(1, 2) + c<sub>2</sub>(2, 1) = (0, 0)</span> رو حل
                                 کنیم، تنها جوابش <span class="math">c<sub>1</sub>=0, c<sub>2</sub>=0</span> هست. پس اینا
-                                <span class="font-bold">مستقل خطی</span> هستن. هر کدوم ساز خودشونو میزنن!
-                            </p>
+                                <span class="font-bold">مستقل خطی</span> هستن. هر کدوم ساز خودشونو میزنن!</p>
                             <div class="chart-container"><canvas id="indep-chart"></canvas></div>
                         </div>
                         <div class="step p-4 bg-red-100 text-red-800 rounded-md">
@@ -780,10 +895,10 @@
 
                     <div id="matrix-input-area-B-wrapper" class="mb-6 hidden">
                         <label for="matrix-input-B" class="block text-sm font-medium text-gray-700 mb-1">ماتریس دوم (B)
-                            رو وارد کن:</label>
+                            رو وارد کن (برای جمع/تفریق):</label>
                         <textarea id="matrix-input-B" rows="5"
                             class="input-field matrix-input-area shadow-sm focus:ring-blue-500 focus:border-blue-500"
-                            placeholder="مثال برای جمع/تفریق"></textarea>
+                            placeholder="هم‌اندازه با ماتریس A"></textarea>
                     </div>
 
                     <div id="scalar-input-wrapper" class="mb-6 hidden">
@@ -927,7 +1042,6 @@
             const scalarInputWrapper = document.getElementById('scalar-input-wrapper');
             const bigTheoremExampleBtn = document.getElementById('solve-big-theorem-example-btn');
 
-
             let userApiKey = sessionStorage.getItem('geminiApiKeyLA');
 
             function updateApiKeyStatus() {
@@ -984,7 +1098,11 @@
                 button.addEventListener('click', function () {
                     const idParts = this.id.split('-');
                     if (idParts.length < 2 || idParts[0] !== 'solve') return;
-                    const conceptPrefix = idParts.slice(1, -1).join('-');
+                    let conceptPrefix = idParts.slice(1, -1).join('-');
+                    // Handle specific case for big-theorem-example-btn
+                    if (this.id === 'solve-big-theorem-example-btn') {
+                        conceptPrefix = 'big-theorem-example';
+                    }
                     const solutionDivId = conceptPrefix + '-solution';
 
                     const solutionDiv = document.getElementById(solutionDivId);
@@ -999,21 +1117,31 @@
                         });
                         steps.forEach((step, index) => {
                             step.animationTimeout = setTimeout(() => {
-                                step.style.opacity = '1';
+                                step.style.opacity = '1'; // Ensure opacity is set to 1
                                 step.classList.add('visible');
-                            }, index * 400 + 50);
+                            }, index * 450 + 50); // Slightly adjusted timing
                         });
                     }
-                    if (this.id === 'solve-indep-btn') setTimeout(renderIndependenceCharts, 50);
+                    if (this.id === 'solve-indep-btn') {
+                        // Ensure canvas elements exist before trying to render charts
+                        if (document.getElementById('indep-chart') && document.getElementById('dep-chart')) {
+                            setTimeout(renderIndependenceCharts, 50);
+                        }
+                    }
                 });
             });
 
             if (bigTheoremExampleBtn) {
                 bigTheoremExampleBtn.addEventListener('click', function () {
-                    const solutionDiv = document.getElementById('big-theorem-example-solution');
-                    solutionDiv.innerHTML = ''; // Clear previous results
+                    // This button's logic for displaying steps is now handled by the generic solutionButtons listener above.
+                    // We can just hide the button if needed.
+                    // this.style.display = 'none'; // Optionally hide after click
+                });
 
-                    const exampleSteps = [
+                // Populate big theorem example steps (assuming this is static content for the example)
+                const bigTheoremSolutionDiv = document.getElementById('big-theorem-example-solution');
+                if (bigTheoremSolutionDiv) { // Ensure it exists
+                    const exampleStepsContent = [
                         {
                             title: "۱. محاسبه دترمینان A",
                             content: `برای ماتریس <span class="math">A = </span><div class="matrix-display"><table><tbody><tr><td>2</td><td>1</td></tr><tr><td>1</td><td>1</td></tr></tbody></table></div>، دترمینان اینطوری حساب میشه: <span class="math">det(A) = (2)(1) - (1)(1) = 2 - 1 = 1</span>.<br> چون دترمینان (<span class="math">1</span>) مخالف صفره، پس ماتریس <span class="font-bold">وارون‌پذیره</span> و بقیه شرایط هم باید برقرار باشن!`
@@ -1040,18 +1168,16 @@
                             content: `چون A وارون‌پذیره، برای هر بردار <span class="math"><span class="vector">b</span></span> در <span class="math">ℝ<sup>2</sup></span>، دستگاه <span class="math">A<span class="vector">X</span> = <span class="vector">b</span></span> یه جواب یکتا و خوشگل داره که از <span class="math"><span class="vector">X</span> = A<sup>-1</sup><span class="vector">b</span></span> به دست میاد.`
                         }
                     ];
-
-                    exampleSteps.forEach((stepData, index) => {
+                    exampleStepsContent.forEach((stepData) => {
                         const stepDiv = document.createElement('div');
                         stepDiv.classList.add('step', 'p-6', 'bg-blue-50', 'rounded-xl', 'border', 'border-blue-200');
+                        // Keep opacity 0 initially, will be handled by button click
+                        stepDiv.style.opacity = '0';
+                        stepDiv.style.transform = 'translateY(25px)';
                         stepDiv.innerHTML = `<h4 class="font-semibold text-blue-800 text-lg mb-3">${stepData.title}</h4><p class="text-gray-700 leading-relaxed">${stepData.content}</p>`;
-                        solutionDiv.appendChild(stepDiv);
-                        setTimeout(() => {
-                            stepDiv.classList.add('visible');
-                        }, index * 500 + 50);
+                        bigTheoremSolutionDiv.appendChild(stepDiv);
                     });
-                    this.style.display = 'none'; // Hide button after clicking
-                });
+                }
             }
 
 
@@ -1099,7 +1225,7 @@
 
             function cloneMatrix(matrix) { return matrix.map(row => [...row]); }
 
-            function toRREF_extended(matrix_orig) { // Renamed to avoid conflict, returns more info
+            function toRREF_extended(matrix_orig) {
                 let matrix = cloneMatrix(matrix_orig); let lead = 0; const rowCount = matrix.length; let stepsHtml = [];
                 if (rowCount === 0 || matrix[0].length === 0) { stepsHtml.push(formatMatrixToHTML(matrix, "ماتریس ورودی خالی یا فرمت نامعتبر دارد")); return { rref: [], steps: stepsHtml, rank: 0, basis: [] }; }
                 const colCount = matrix[0].length; stepsHtml.push(formatMatrixToHTML(matrix, "ماتریس اولیه"));
@@ -1127,173 +1253,52 @@
                 if (rows === 0) return { value: NaN, steps: ["ماتریس خالی است."] };
                 const cols = matrix[0].length;
                 if (rows !== cols) throw new Error("دترمینان فقط برای ماتریس‌های مربعی تعریف شده.");
-
-                let stepsHtml = [formatMatrixToHTML(matrix, "ماتریس برای محاسبه دترمینان")];
-                let det;
-
-                if (rows === 1) {
-                    det = matrix[0][0];
-                    stepsHtml.push(`<p>دترمینان ماتریس ۱x۱ برابر خود درایه است: <span class="math">${det}</span></p>`);
-                } else if (rows === 2) {
-                    det = matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0];
-                    stepsHtml.push(`<p>برای ماتریس ۲x۲، <span class="math">det = ad - bc</span>:</p><p class="math">(${matrix[0][0]})(${matrix[1][1]}) - (${matrix[0][1]})(${matrix[1][0]}) = ${det}</p>`);
-                } else if (rows === 3) { // Sarrus' rule
-                    det = matrix[0][0] * (matrix[1][1] * matrix[2][2] - matrix[1][2] * matrix[2][1]) -
-                        matrix[0][1] * (matrix[1][0] * matrix[2][2] - matrix[1][2] * matrix[2][0]) +
-                        matrix[0][2] * (matrix[1][0] * matrix[2][1] - matrix[1][1] * matrix[2][0]);
-                    stepsHtml.push(`<p>برای ماتریس ۳x۳ با استفاده از روش ساروس (بسط سطری اول):</p>
-                    <p class="math">${matrix[0][0]} * det(<div class="matrix-display"><table><tr><td>${matrix[1][1]}</td><td>${matrix[1][2]}</td></tr><tr><td>${matrix[2][1]}</td><td>${matrix[2][2]}</td></tr></table></div>) 
-                     - ${matrix[0][1]} * det(<div class="matrix-display"><table><tr><td>${matrix[1][0]}</td><td>${matrix[1][2]}</td></tr><tr><td>${matrix[2][0]}</td><td>${matrix[2][2]}</td></tr></table></div>) 
-                     + ${matrix[0][2]} * det(<div class="matrix-display"><table><tr><td>${matrix[1][0]}</td><td>${matrix[1][1]}</td></tr><tr><td>${matrix[2][0]}</td><td>${matrix[2][1]}</td></tr></table></div>) 
-                     = ${det}</p>`);
-                } else {
-                    throw new Error("محاسبه دترمینان برای ماتریس‌های بزرگتر از ۳x۳ در این ابزار پشتیبانی نمی‌شود.");
-                }
+                let stepsHtml = [formatMatrixToHTML(matrix, "ماتریس برای محاسبه دترمینان")]; let det;
+                if (rows === 1) { det = matrix[0][0]; stepsHtml.push(`<p>دترمینان ماتریس ۱x۱ برابر خود درایه است: <span class="math">${det}</span></p>`); }
+                else if (rows === 2) { det = matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0]; stepsHtml.push(`<p>برای ماتریس ۲x۲، <span class="math">det = ad - bc</span>:</p><p class="math">(${matrix[0][0]})(${matrix[1][1]}) - (${matrix[0][1]})(${matrix[1][0]}) = ${det}</p>`); }
+                else if (rows === 3) { det = matrix[0][0] * (matrix[1][1] * matrix[2][2] - matrix[1][2] * matrix[2][1]) - matrix[0][1] * (matrix[1][0] * matrix[2][2] - matrix[1][2] * matrix[2][0]) + matrix[0][2] * (matrix[1][0] * matrix[2][1] - matrix[1][1] * matrix[2][0]); stepsHtml.push(`<p>برای ماتریس ۳x۳ با استفاده از روش ساروس (بسط سطری اول):</p><p class="math">${matrix[0][0]}*det(<div class="matrix-display"><table><tr><td>${matrix[1][1]}</td><td>${matrix[1][2]}</td></tr><tr><td>${matrix[2][1]}</td><td>${matrix[2][2]}</td></tr></table></div>)-${matrix[0][1]}*det(<div class="matrix-display"><table><tr><td>${matrix[1][0]}</td><td>${matrix[1][2]}</td></tr><tr><td>${matrix[2][0]}</td><td>${matrix[2][2]}</td></tr></table></div>)+${matrix[0][2]}*det(<div class="matrix-display"><table><tr><td>${matrix[1][0]}</td><td>${matrix[1][1]}</td></tr><tr><td>${matrix[2][0]}</td><td>${matrix[2][1]}</td></tr></table></div>) = ${det}</p>`); }
+                else { throw new Error("محاسبه دترمینان برای ماتریس‌های بزرگتر از ۳x۳ در این ابزار پشتیبانی نمی‌شود."); }
                 stepsHtml.push(`<div class="p-3 bg-green-100 text-green-800 rounded-md"><h5 class="font-bold">مقدار دترمینان: <span class="math text-xl">${det.toFixed(4)}</span></h5></div>`);
                 return { value: det, steps: stepsHtml };
             }
 
             function transposeMatrix(matrix) {
                 if (matrix.length === 0) return { transposed: [], steps: ["ماتریس ورودی خالی است."] };
-                const rows = matrix.length;
-                const cols = matrix[0].length;
+                const rows = matrix.length; const cols = matrix[0].length;
                 const transposed = Array(cols).fill(null).map(() => Array(rows).fill(null));
-                for (let i = 0; i < rows; i++) {
-                    for (let j = 0; j < cols; j++) {
-                        transposed[j][i] = matrix[i][j];
-                    }
-                }
-                let stepsHtml = [
-                    formatMatrixToHTML(matrix, "ماتریس اولیه"),
-                    formatMatrixToHTML(transposed, "ماتریس ترانهاده (A<sup>T</sup>)")
-                ];
+                for (let i = 0; i < rows; i++) { for (let j = 0; j < cols; j++) { transposed[j][i] = matrix[i][j]; } }
+                let stepsHtml = [formatMatrixToHTML(matrix, "ماتریس اولیه"), formatMatrixToHTML(transposed, "ماتریس ترانهاده (A<sup>T</sup>)")];
                 return { transposed: transposed, steps: stepsHtml };
             }
 
             function addOrSubtractMatrices(matrixA, matrixB, operation) {
-                const rowsA = matrixA.length;
-                const colsA = matrixA[0].length;
-                const rowsB = matrixB.length;
-                const colsB = matrixB[0].length;
-
-                if (rowsA !== rowsB || colsA !== colsB) {
-                    throw new Error("برای جمع یا تفریق، ابعاد دو ماتریس باید یکسان باشند.");
-                }
+                const rowsA = matrixA.length; const colsA = matrixA[0].length; const rowsB = matrixB.length; const colsB = matrixB[0].length;
+                if (rowsA !== rowsB || colsA !== colsB) throw new Error("برای جمع یا تفریق، ابعاد دو ماتریس باید یکسان باشند.");
                 const resultMatrix = cloneMatrix(matrixA);
-                for (let i = 0; i < rowsA; i++) {
-                    for (let j = 0; j < colsA; j++) {
-                        if (operation === 'add') resultMatrix[i][j] += matrixB[i][j];
-                        else resultMatrix[i][j] -= matrixB[i][j];
-                    }
-                }
-                const opSymbol = operation === 'add' ? '+' : '-';
-                const opName = operation === 'add' ? 'جمع' : 'تفریق';
-                let stepsHtml = [
-                    formatMatrixToHTML(matrixA, "ماتریس A"),
-                    formatMatrixToHTML(matrixB, `ماتریس B (برای ${opName})`),
-                    formatMatrixToHTML(resultMatrix, `نتیجه ${opName} (A ${opSymbol} B)`)
-                ];
+                for (let i = 0; i < rowsA; i++) { for (let j = 0; j < colsA; j++) { if (operation === 'add') resultMatrix[i][j] += matrixB[i][j]; else resultMatrix[i][j] -= matrixB[i][j]; } }
+                const opSymbol = operation === 'add' ? '+' : '-'; const opName = operation === 'add' ? 'جمع' : 'تفریق';
+                let stepsHtml = [formatMatrixToHTML(matrixA, "ماتریس A"), formatMatrixToHTML(matrixB, `ماتریس B (برای ${opName})`), formatMatrixToHTML(resultMatrix, `نتیجه ${opName} (A ${opSymbol} B)`)];
                 return { result: resultMatrix, steps: stepsHtml };
             }
 
             function multiplyMatrixByScalar(matrix, scalar) {
                 if (isNaN(scalar)) throw new Error("مقدار اسکالر باید یک عدد باشد.");
                 const resultMatrix = cloneMatrix(matrix);
-                for (let i = 0; i < resultMatrix.length; i++) {
-                    for (let j = 0; j < resultMatrix[0].length; j++) {
-                        resultMatrix[i][j] *= scalar;
-                    }
-                }
-                let stepsHtml = [
-                    formatMatrixToHTML(matrix, "ماتریس اولیه (A)"),
-                    `<p class="mb-2 text-sm text-gray-700">ضرب در اسکالر: <span class="math font-bold">${scalar}</span></p>`,
-                    formatMatrixToHTML(resultMatrix, `نتیجه ضرب اسکالر (${scalar}A)`)
-                ];
+                for (let i = 0; i < resultMatrix.length; i++) { for (let j = 0; j < resultMatrix[0].length; j++) { resultMatrix[i][j] *= scalar; } }
+                let stepsHtml = [formatMatrixToHTML(matrix, "ماتریس اولیه (A)"), `<p class="mb-2 text-sm text-gray-700">ضرب در اسکالر: <span class="math font-bold">${scalar}</span></p>`, formatMatrixToHTML(resultMatrix, `نتیجه ضرب اسکالر (${scalar}A)`)];
                 return { result: resultMatrix, steps: stepsHtml };
             }
 
-
             function handleMatrixOperations() {
-                const operation = matrixOperationSelect.value;
-                const inputStringA = document.getElementById('matrix-input-A').value;
-                const resultsDiv = document.getElementById('matrix-ops-results');
-                resultsDiv.innerHTML = '';
-
+                const operation = matrixOperationSelect.value; const inputStringA = document.getElementById('matrix-input-A').value; const resultsDiv = document.getElementById('matrix-ops-results'); resultsDiv.innerHTML = '';
                 try {
-                    const matrixA = parseMatrixInput(inputStringA, "ماتریس A");
-                    let operationResult;
-
+                    const matrixA = parseMatrixInput(inputStringA, "ماتریس A"); let operationResult;
                     switch (operation) {
-                        case 'rref_rank_basis':
-                            operationResult = toRREF_extended(matrixA);
-                            // Display steps
-                            operationResult.steps.forEach((stepHtml, index) => {
-                                const stepDiv = document.createElement('div');
-                                stepDiv.classList.add('step', 'p-3', 'bg-gray-50', 'rounded-md', 'border', 'border-gray-200');
-                                stepDiv.innerHTML = stepHtml;
-                                resultsDiv.appendChild(stepDiv);
-                                setTimeout(() => stepDiv.classList.add('visible'), index * 200 + 50);
-                            });
-                            // Display rank and basis
-                            const rankResultHtml = `<div class="step p-4 bg-green-100 text-green-800 rounded-md mt-4 border border-green-200"><h4 class="font-bold">رتبه ماتریس:</h4><p class="text-2xl font-bold">${operationResult.rank}</p></div>`;
-                            resultsDiv.insertAdjacentHTML('beforeend', rankResultHtml);
-                            setTimeout(() => resultsDiv.querySelector('.bg-green-100.step').classList.add('visible'), operationResult.steps.length * 200 + 100);
-
-                            let basisHtml = `<div class="step p-4 bg-blue-100 text-blue-800 rounded-md mt-2 border border-blue-200"><h4 class="font-bold">یک پایه برای فضای سطری:</h4>`;
-                            if (operationResult.basis.length > 0) {
-                                basisHtml += '<ul class="list-disc list-inside pr-5 mt-2 space-y-1">';
-                                operationResult.basis.forEach(rowVector => { basisHtml += `<li class="math">{ ${rowVector.map(n => (Math.abs(n) < 1e-9 ? 0 : (Number.isInteger(n) ? n : n.toFixed(2)))).join(', ')} }</li>`; });
-                                basisHtml += '</ul>';
-                            } else { basisHtml += '<p class="mt-1">فضای سطری فقط شامل بردار صفر است (پایه تهی، رتبه صفر).</p>'; }
-                            basisHtml += '</div>';
-                            resultsDiv.insertAdjacentHTML('beforeend', basisHtml);
-                            setTimeout(() => resultsDiv.querySelector('.bg-blue-100.step').classList.add('visible'), operationResult.steps.length * 200 + 150);
-                            break;
-                        case 'determinant':
-                            operationResult = calculateDeterminant(matrixA);
-                            operationResult.steps.forEach((stepHtml, index) => {
-                                const stepDiv = document.createElement('div');
-                                stepDiv.classList.add('step', 'p-3', 'bg-gray-50', 'rounded-md', 'border', 'border-gray-200');
-                                stepDiv.innerHTML = stepHtml; // stepHtml already contains P tags for determinant
-                                resultsDiv.appendChild(stepDiv);
-                                setTimeout(() => stepDiv.classList.add('visible'), index * 200 + 50);
-                            });
-                            break;
-                        case 'transpose':
-                            operationResult = transposeMatrix(matrixA);
-                            operationResult.steps.forEach((stepHtml, index) => {
-                                const stepDiv = document.createElement('div');
-                                stepDiv.classList.add('step', 'p-3', 'bg-gray-50', 'rounded-md', 'border', 'border-gray-200');
-                                stepDiv.innerHTML = stepHtml;
-                                resultsDiv.appendChild(stepDiv);
-                                setTimeout(() => stepDiv.classList.add('visible'), index * 200 + 50);
-                            });
-                            break;
-                        case 'add':
-                        case 'subtract':
-                            const inputStringB = document.getElementById('matrix-input-B').value;
-                            const matrixB = parseMatrixInput(inputStringB, "ماتریس B");
-                            operationResult = addOrSubtractMatrices(matrixA, matrixB, operation);
-                            operationResult.steps.forEach((stepHtml, index) => {
-                                const stepDiv = document.createElement('div');
-                                stepDiv.classList.add('step', 'p-3', 'bg-gray-50', 'rounded-md', 'border', 'border-gray-200');
-                                stepDiv.innerHTML = stepHtml;
-                                resultsDiv.appendChild(stepDiv);
-                                setTimeout(() => stepDiv.classList.add('visible'), index * 200 + 50);
-                            });
-                            break;
-                        case 'scalar_multiply':
-                            const scalarVal = parseFloat(document.getElementById('scalar-input').value);
-                            operationResult = multiplyMatrixByScalar(matrixA, scalarVal);
-                            operationResult.steps.forEach((stepHtml, index) => {
-                                const stepDiv = document.createElement('div');
-                                stepDiv.classList.add('step', 'p-3', 'bg-gray-50', 'rounded-md', 'border', 'border-gray-200');
-                                stepDiv.innerHTML = stepHtml;
-                                resultsDiv.appendChild(stepDiv);
-                                setTimeout(() => stepDiv.classList.add('visible'), index * 200 + 50);
-                            });
-                            break;
-
+                        case 'rref_rank_basis': operationResult = toRREF_extended(matrixA); operationResult.steps.forEach((stepHtml, index) => { const stepDiv = document.createElement('div'); stepDiv.classList.add('step', 'p-3', 'bg-gray-50', 'rounded-md', 'border', 'border-gray-200'); stepDiv.innerHTML = stepHtml; resultsDiv.appendChild(stepDiv); setTimeout(() => stepDiv.classList.add('visible'), index * 200 + 50); }); const rankResultHtml = `<div class="step p-4 bg-green-100 text-green-800 rounded-md mt-4 border border-green-200"><h4 class="font-bold">رتبه ماتریس:</h4><p class="text-2xl font-bold">${operationResult.rank}</p></div>`; resultsDiv.insertAdjacentHTML('beforeend', rankResultHtml); setTimeout(() => resultsDiv.querySelector('.bg-green-100.step').classList.add('visible'), operationResult.steps.length * 200 + 100); let basisHtml = `<div class="step p-4 bg-blue-100 text-blue-800 rounded-md mt-2 border border-blue-200"><h4 class="font-bold">یک پایه برای فضای سطری:</h4>`; if (operationResult.basis.length > 0) { basisHtml += '<ul class="list-disc list-inside pr-5 mt-2 space-y-1">'; operationResult.basis.forEach(rowVector => { basisHtml += `<li class="math">{ ${rowVector.map(n => (Math.abs(n) < 1e-9 ? 0 : (Number.isInteger(n) ? n : n.toFixed(2)))).join(', ')} }</li>`; }); basisHtml += '</ul>'; } else { basisHtml += '<p class="mt-1">فضای سطری فقط شامل بردار صفر است (پایه تهی، رتبه صفر).</p>'; } basisHtml += '</div>'; resultsDiv.insertAdjacentHTML('beforeend', basisHtml); setTimeout(() => resultsDiv.querySelector('.bg-blue-100.step').classList.add('visible'), operationResult.steps.length * 200 + 150); break;
+                        case 'determinant': operationResult = calculateDeterminant(matrixA); operationResult.steps.forEach((stepHtml, index) => { const stepDiv = document.createElement('div'); stepDiv.classList.add('step', 'p-3', 'bg-gray-50', 'rounded-md', 'border', 'border-gray-200'); stepDiv.innerHTML = stepHtml; resultsDiv.appendChild(stepDiv); setTimeout(() => stepDiv.classList.add('visible'), index * 200 + 50); }); break;
+                        case 'transpose': operationResult = transposeMatrix(matrixA); operationResult.steps.forEach((stepHtml, index) => { const stepDiv = document.createElement('div'); stepDiv.classList.add('step', 'p-3', 'bg-gray-50', 'rounded-md', 'border', 'border-gray-200'); stepDiv.innerHTML = stepHtml; resultsDiv.appendChild(stepDiv); setTimeout(() => stepDiv.classList.add('visible'), index * 200 + 50); }); break;
+                        case 'add': case 'subtract': const inputStringB = document.getElementById('matrix-input-B').value; const matrixB = parseMatrixInput(inputStringB, "ماتریس B"); operationResult = addOrSubtractMatrices(matrixA, matrixB, operation); operationResult.steps.forEach((stepHtml, index) => { const stepDiv = document.createElement('div'); stepDiv.classList.add('step', 'p-3', 'bg-gray-50', 'rounded-md', 'border', 'border-gray-200'); stepDiv.innerHTML = stepHtml; resultsDiv.appendChild(stepDiv); setTimeout(() => stepDiv.classList.add('visible'), index * 200 + 50); }); break;
+                        case 'scalar_multiply': const scalarVal = parseFloat(document.getElementById('scalar-input').value); operationResult = multiplyMatrixByScalar(matrixA, scalarVal); operationResult.steps.forEach((stepHtml, index) => { const stepDiv = document.createElement('div'); stepDiv.classList.add('step', 'p-3', 'bg-gray-50', 'rounded-md', 'border', 'border-gray-200'); stepDiv.innerHTML = stepHtml; resultsDiv.appendChild(stepDiv); setTimeout(() => stepDiv.classList.add('visible'), index * 200 + 50); }); break;
                     }
                 } catch (error) { resultsDiv.innerHTML = `<p class="text-red-600 font-semibold p-4 bg-red-100 rounded-md border border-red-300">خطا: ${error.message}</p>`; }
             }
