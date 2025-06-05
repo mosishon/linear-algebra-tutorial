@@ -4,16 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Chosen Palette: Enhanced Scholarly Neutrals -->
-    <!-- Application Structure Plan: SPA with fixed sidebar. "Matrix Tools" enhanced. "Big Theorem" example. API key input. Overall textual content rewritten. Added "Basic Concepts" section for foundational topics. Corrected chart rendering and step animation issues. This structure maximizes learning from foundational to advanced, with practical tools and AI assistance, suitable for a public GitHub repository. -->
-    <!-- Visualization & Content Choices: Definitions rewritten. Matrix tools use dynamic HTML. Chart.js for Linear Independence now correctly rendered. Unicode icons for Big Theorem. Gemini API calls (Markdown rendered). NO SVG/Mermaid. -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <meta name="description"
+        content="جبر خطی را به زبان ساده و با مثال‌های کاربردی بیاموزید! کاوشگر تعاملی شامل ترکیب خطی، استقلال خطی، پایه، بُعد، رتبه ماتریس، ابزارهای محاسبه ماتریس و توضیحات هوش مصنوعی Gemini.">
+
+    <meta name="keywords"
+        content="جبر خطی, آموزش جبر خطی, ترکیب خطی, استقلال خطی, پایه, بعد, رتبه ماتریس, فضای برداری, ماتریس, حل دستگاه معادلات, آموزش تعاملی, کاوشگر جبر, مصطفی ارشدی, linear algebra, interactive learning, vector space, matrix rank, basis, dimension, gemini api">
+
+    <meta name="author" content="مصطفی ارشدی و Gemini">
+
+    <meta property="og:title" content="کاوشگر پیشرفته جبر خطی | یادگیری با طعم مریخی!">
+    <meta property="og:description"
+        content="مفاهیم پیچیده جبر خطی مثل ترکیب خطی، پایه، بعد و رتبه ماتریس رو با مثال‌های خودمونی، ابزارهای تعاملی و کمک هوش مصنوعی Gemini به راحتی یاد بگیر!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://https://algebra.mosishon.ir/">
+    <meta property="og:locale" content="fa_IR">
+
     <title>کاوشگر نهایی جبر خطی</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="/favicon.ico" sizes="any">
+
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -470,12 +483,14 @@
                                 از آجر <span class="math"><span class="vector">v</span><sub>2</sub></span>. اون دیوار
                                 نهایی میشه ترکیب خطی آجرهات! <br><span class="math">2<span
                                         class="vector">v</span><sub>1</sub> + 3<span class="vector">v</span><sub>2</sub>
-                                    = <span class="vector">v</span></span>. اون عددهای ۲ و ۳ همون اسکالرها هستن.</p>
+                                    = <span class="vector">v</span></span>. اون عددهای ۲ و ۳ همون اسکالرها هستن.
+                            </p>
                             <p class="mt-2 pl-10 text-sm text-gray-600"><strong>مثال:</strong> اگه <span
                                     class="math"><span class="vector">v</span><sub>1</sub> = (1,0)</span> و <span
                                     class="math"><span class="vector">v</span><sub>2</sub> = (0,1)</span> باشه، بردار
                                 <span class="math"><span class="vector">w</span> = (3,2)</span> یه ترکیب خطیه، چون:
-                                <span class="math">3(1,0) + 2(0,1) = (3,2)</span>.</p>
+                                <span class="math">3(1,0) + 2(0,1) = (3,2)</span>.
+                            </p>
                         </div>
 
                         <div>
@@ -643,7 +658,8 @@
                             <h4 class="font-semibold text-blue-800">قدم اول: معادله کلی</h4>
                             <p class="math">c<sub>1</sub>(1, 1) + c<sub>2</sub>(2, 2) = (x, y)</p>
                             <p class="text-sm text-gray-600">(که <span class="math">(x,y)</span> یه بردار دلخواه تو
-                                <span class="math">ℝ<sup>2</sup></span> هست)</p>
+                                <span class="math">ℝ<sup>2</sup></span> هست)
+                            </p>
                         </div>
                         <div class="step p-4 bg-blue-50 rounded-md">
                             <h4 class="font-semibold text-blue-800">قدم دوم: دستگاه معادلاتش</h4>
@@ -700,7 +716,8 @@
                             <h4 class="font-semibold">تحلیل مجموعه ۱ (<span class="math vector">v</span>ها)</h4>
                             <p>اگه <span class="math">c<sub>1</sub>(1, 2) + c<sub>2</sub>(2, 1) = (0, 0)</span> رو حل
                                 کنیم، تنها جوابش <span class="math">c<sub>1</sub>=0, c<sub>2</sub>=0</span> هست. پس اینا
-                                <span class="font-bold">مستقل خطی</span> هستن. هر کدوم ساز خودشونو میزنن!</p>
+                                <span class="font-bold">مستقل خطی</span> هستن. هر کدوم ساز خودشونو میزنن!
+                            </p>
                             <div class="chart-container"><canvas id="indep-chart"></canvas></div>
                         </div>
                         <div class="step p-4 bg-red-100 text-red-800 rounded-md">
